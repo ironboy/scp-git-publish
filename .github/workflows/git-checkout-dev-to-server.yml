@@ -4,15 +4,15 @@ name: Git-checkouter
 # in which branch(es) should start the jobs...
 on:
   push:
-    branches: [main]
+    branches: [dev]
   pull_request:
-    branches: [main]
+    branches: [dev]
 
 # jobs to run
 jobs:
   # build, the name of the job, a server to create and auto configure
   build:
-    name: Checkout main to web server
+    name: Checkout dev to web server
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -24,4 +24,4 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         source: '*.*'
-        target: /var/www/html
+        target: /var/www/dev-healthworks.nodehill.com/public_html
