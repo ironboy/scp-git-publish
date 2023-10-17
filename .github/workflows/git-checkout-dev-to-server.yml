@@ -15,13 +15,15 @@ jobs:
     name: Checkout dev to web server
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: copy file via ssh password
-      uses: appleboy/scp-action@v0.1.4
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        port: ${{ secrets.PORT }}
-        source: '*.*'
-        target: /var/www/dev-healthworks.nodehill.com/public_html
+      - uses: actions/checkout@v3
+      - name: copy file via ssh password
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          source: "*.*"
+          target: /var/www/dev-healthworks.nodehill.com/public_html
+          rm: true
+          overwrite: true
