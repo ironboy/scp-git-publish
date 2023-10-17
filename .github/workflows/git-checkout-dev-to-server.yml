@@ -23,7 +23,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          source: "/*"
+          source: "*.*,esys/*,esys/admin/*,some_folder/*"
           target: /var/www/dev-healthworks.nodehill.com/public_html
           rm: true
           overwrite: true
